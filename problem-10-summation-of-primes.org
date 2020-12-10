@@ -1,0 +1,30 @@
+* problem statement
+The sum of the prumes below 10 is 2 + 3 + 5 + 7 = 17.
+Find the sum of all the primes below two million.
+
+* solutions
+#+begin_src python :results output
+  primes = []
+
+  def is_prime(number):
+      for prime in primes:
+          if number % prime == 0:
+              return False
+      return True
+
+  prime_candidates = {}
+
+  target = 2000000
+  for i in range(2, target+1):
+      prime_candidates[i] = True
+    
+  for number, candidate in prime_candidates.items():
+      if candidate:
+          for i in range(number+number, target+1, number):
+              prime_candidates[i] = False
+
+  print(sum([num for num, cand in prime_candidates.items() if cand]))
+#+end_src
+
+#+RESULTS:
+: 142913828922
