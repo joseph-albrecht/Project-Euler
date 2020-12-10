@@ -1,0 +1,25 @@
+* problem statement
+There exists exactly one Pythagorean triplet for which a + b + c
+= 1000. Find the product abc.
+
+* soluction
+#+begin_src python :results output
+  import functools
+
+  def product(numbers):
+      return functools.reduce(lambda x, y: x * y, numbers)
+
+  def is_pythagorean_triple(a, b, c):
+      return a**2 + b**2 == c**2
+
+  for a in range(1,1001):
+      for b in range(a, 1001):
+          c = 1000 - a - b
+          if is_pythagorean_triple(a, b, c):
+              print(f"a:{a} b:{b} c:{c}")
+              print(f"product: {product([a, b, c])}")
+#+end_src
+
+#+RESULTS:
+: a:200 b:375 c:425
+: product: 31875000
