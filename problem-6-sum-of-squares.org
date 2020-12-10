@@ -1,0 +1,15 @@
+* problem statement
+What is the square of the sum of the first 100 natural numbers, minus
+the sum of the squares of the first 100 natural numbers?
+
+* solution
+
+#+begin_src python :results output
+  sum_of_squares = sum([i**2 for i in range(1,101)])
+  square_of_sum = sum([i for i in range(1,101)]) ** 2
+
+  print(f"{square_of_sum} - {sum_of_squares} is {square_of_sum - sum_of_squares}")
+#+end_src
+
+#+RESULTS:
+: 25502500 - 338350 is 25164150
